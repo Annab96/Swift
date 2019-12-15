@@ -127,3 +127,102 @@ var a = [4,2,5,1,7,4,9,11,3,5,4]
 
 let b = Set(a)
 a = Array(b)
+
+let tupleValue = ("a", "b", 1, 2.5, true)
+tupleValue.0
+tupleValue.1
+tupleValue.2
+tupleValue.3
+tupleValue.4
+
+var tpl01 : (Int, Int) = (100, 200)
+var tpl02 : (Int, String, Int) = (100, "a", 200)
+var tpl03 : (Int, (String, String)) = (100, ("t", "v"))
+var tpl04 : (String) = ("Sample string")
+
+let TupleValue : (String, Character, Int, Float, Bool) = ("a", "b", 1, 2.5, true)
+let (a1,b1,c1,d1,e1) = TupleValue
+
+print(a1)
+print(b1)
+print(c1)
+print(d1)
+print(e1)
+
+func getTupleValue() -> (String, String, Int) {
+    return ("t", "v", 100)
+}
+
+let (a2, b2, c2) = getTupleValue()
+
+let (a3, b3, _) = getTupleValue()
+
+var capital = ["KR":"Seoul", "EN":"London", "FR":"Paris"]
+capital["KR"]
+capital["EN"]
+capital["FR"]
+
+/*
+ Dictionary<String, Int>()
+ Dictionary<String, String>()
+ Dictionary<String, AnyObject>()
+ Dictionary<Character, String>()
+ 
+ [String : Int]()
+ [String : String]()
+ [String : AnyObject]()
+ [Character : String]()
+ */
+
+/*
+ var capital = Dictionary<String, String>()
+ var capital = [String : String]()
+
+ var capital : Dictionary<String, String>
+ capital = Dictionary()
+ 
+ var capital : [String:String]
+ capital = [String:String]()
+ 
+ capital = Dictionary<String, String>()
+ capital = Dictionary()
+ capital = [String:String]()
+ capital = [:]
+ */
+
+var newCapital = [String:String]()
+newCapital["JP"] = "Tokyo"
+
+if newCapital.isEmpty {
+    print("딕셔너리가 비어 있는 상태입니다")
+} else {
+    print("딕셔너리의 크기는 현재 \(newCapital.count)입니다")
+}
+
+newCapital.updateValue("Seoul", forKey: "KR")
+newCapital.updateValue("London", forKey: "EN")
+newCapital.updateValue("Sapporo", forKey: "JP")
+
+newCapital.updateValue("Ottawa", forKey: "CA")
+newCapital.updateValue("Beijing", forKey: "CN")
+
+newCapital["CN"] = nil
+newCapital.removeValue(forKey: "CA")
+
+if let removedValue = newCapital.removeValue(forKey: "CA") {
+    print("삭제된 값은 \(removedValue)입니다")
+} else {
+    print("아무 것도 삭제되지 않았습니다")
+}
+
+for row in newCapital {
+    let (key, value) = row
+    print("현재 데이터는 \(key) : \(value)입니다")
+}
+
+for (key, value) in newCapital {
+    print("현재 데이터는 \(key) : \(value)입니다")
+}
+
+
+
